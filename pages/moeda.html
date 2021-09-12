@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../public/estilo.css" />
+    <title>Moedas do dia</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Cotação atual</h2>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img
+            src="https://thumbs.dreamstime.com/b/moeda-real-brasileira-oficial-do-brasil-%C3%ADcone-de-brasileiro-199935972.jpg"
+            alt="Símbolo moeda real"
+            width="200"
+            height="200"
+          />
+          <p class="valor-internacional"><%= moedaInternacional %></p>
+          <div class="linha"></div>
+        </div>
+        <div class="col">
+          <img
+            src="<%= moedaImagem %>"
+            alt="Símbolo moeda <%= moedaNome %>"
+            width="200"
+            height="200"
+          />
+          <p class="valor-nacional"><%= moedaNacional %></p>
+          <div class="linha"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

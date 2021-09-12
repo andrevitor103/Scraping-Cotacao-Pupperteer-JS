@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+div.col > p {
+  font-size: 26px;
+  font-weight: bold;
+}
+.valor-nacional {
+  color: green;
+}
+.valor-internacional {
+  color: red;
+}
+
+.linha {
+  border-bottom: 1px solid #000;
+  width: 50%;
+  text-align: center;
+}
