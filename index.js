@@ -36,8 +36,9 @@ const listaMoedas = [
   },
 ];
 app.get("/", (req, res) => {
-  if (req.query.moedas != null) {
-    res.redirect(`/${req.query.moedas}`);
+  const id = req.query.moedas;
+  if (id != undefined) {
+    res.redirect(`/cotar/${req.query.moedas}`);
     return "";
   }
   res.render("index.html", { moedas: listaMoedas });
@@ -49,14 +50,13 @@ const buscarMoeda = (idProcurado) => {
   });
 };
 
-app.get("/:id", async (req, res) => {
+app.get("/cotar/:id", async (req, res) => {
   const id = req.params.id;
   if (id.length > 0) {
     const rota = await buscarMoeda(id);
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    // await page.goto(`https://dolarhoje.com/${rota[0]?.rota}/`);
-    await page.goto(`https://dolarhoje.com/`);
+    await page.goto(`https://dolarhoje.com/${rota[0]?.rota}/`);
     const dados = await page.evaluate(() => {
       return {
         moedaEstrangeira: document.querySelector("#estrangeiro").value,
